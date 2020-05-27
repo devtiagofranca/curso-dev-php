@@ -1,4 +1,5 @@
-FROM gitpod/workspace-full
+ 
+FROM buildpack-deps:focal
                     
 USER gitpod
 
@@ -26,6 +27,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq \
         php-sqlite3 \
         php-tokenizer \
         php-xml \
+        redis-server \
         php-zip \
     && cp /var/lib/dpkg/status /var/lib/apt/dazzle-marks/tool-nginx.status \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* \
